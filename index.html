@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>ปริศนาศัพท์ดนตรี</title>
+    <title>Music Term Crossword</title>
     <meta
       name="description"
       content="ปริศนาอักษรไขว้ศัพท์ดนตรี อ่านคำใบ้ภาษาไทย แล้วเติมศัพท์ดนตรีสากลลงในตาราง"
     />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#dfe9ef" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0f1a21" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#1c2170" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c0f3a" media="(prefers-color-scheme: dark)" />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E
-%3Ccircle cx='12' cy='23' r='6' fill='%23c4421f'/%3E
-%3Cpath d='M17 23V4h4v19' fill='%23c4421f'/%3E%3C/svg%3E"
+%3Ccircle cx='12' cy='23' r='6' fill='%23ee5a24'/%3E
+%3Cpath d='M17 23V4h4v19' fill='%23ee5a24'/%3E%3C/svg%3E"
     />
-    <meta property="og:title" content="ปริศนาศัพท์ดนตรี" />
+    <meta property="og:title" content="Music Term Crossword" />
     <meta
       property="og:description"
       content="ปริศนาอักษรไขว้ศัพท์ดนตรี อ่านคำใบ้ภาษาไทย แล้วเติมศัพท์ดนตรีสากลลงในตาราง"
@@ -412,12 +412,200 @@
           --bad: #ff8a80;
           color-scheme: dark;
       }
+
+      /* ═══ ธีม Find-a-Word (ลายหมากรุกแดงอิฐ พื้นครีม) ═══ */
+      :root {
+        --bg: #efe7d6; --surface: #fbf6ea; --surface-2: #f3ead6;
+        --line: #3a2e28; --line-strong: #1a1512;
+        --text: #161210; --text-soft: #4a3b33; --muted: #7a6a5e;
+        --action: #b8412b; --action-ink: #fbf6ea; --action-soft: #f6d9cf;
+        --blue: #1f7a4d; --blue-soft: #cfeedd; --brass: #b8412b;
+        --good: #2e7d59; --bad: #b3261e;
+        --chk: 16px; --hl-yellow: #f3dc7e; --hl-green: #7fd6a4; --hl-purple: #c4a8ee; --hl-orange: #f2a65e;
+        --grunge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+        --display: 'Rockwell Extra Bold', 'Arial Black', Impact, 'Haettenschweiler', 'Sarabun', 'Leelawadee UI', 'Noto Sans Thai', sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --bg: #2b1a16; --surface: #3a241e; --surface-2: #46291f;
+          --line: #8a6a5c; --line-strong: #d9c7ab;
+          --text: #f6ecd8; --text-soft: #dccdb4; --muted: #b09a84;
+          --action: #e0583a; --action-ink: #1f0f0a; --action-soft: #5a2c1f;
+          --blue: #7fd6a4; --blue-soft: #284a3a; --brass: #f2a65e;
+          --good: #7fd1a6; --bad: #ff8a80; --hl-yellow: #7a6420;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #2b1a16; --surface: #3a241e; --surface-2: #46291f;
+        --line: #8a6a5c; --line-strong: #d9c7ab;
+        --text: #f6ecd8; --text-soft: #dccdb4; --muted: #b09a84;
+        --action: #e0583a; --action-ink: #1f0f0a; --action-soft: #5a2c1f;
+        --blue: #7fd6a4; --blue-soft: #284a3a; --brass: #f2a65e;
+        --good: #7fd1a6; --bad: #ff8a80; --hl-yellow: #7a6420;
+      }
+      body { background: var(--bg); }
+      main {
+        max-width: 700px; margin: 0 auto;
+        border: calc(var(--chk) * 2) solid transparent;
+        padding: 18px 12px 24px;
+        background-image: var(--grunge), linear-gradient(var(--bg), var(--bg)),
+          repeating-conic-gradient(var(--action) 0 25%, var(--bg) 0 50%);
+        background-clip: padding-box, padding-box, border-box;
+        background-origin: border-box;
+        background-size: 300px 300px, auto, calc(var(--chk) * 2) calc(var(--chk) * 2);
+        min-height: 100vh;
+      }
+      @media (min-width: 720px) { :root { --chk: 20px; } main { margin-block: 12px; min-height: 0; } }
+      h1, h2, .burst { font-family: var(--display); letter-spacing: .02em; }
+      h1 { color: var(--action); font-weight: 900; font-size: clamp(30px, 8vw, 46px); text-align: center; line-height: 1.15; }
+      h2 { color: var(--action); font-weight: 900; font-size: 19px; text-transform: uppercase; }
+      .hero { position: relative; text-align: center; padding: 6px 0 4px; }
+      .spark { position: absolute; fill: var(--action); width: 34px; height: 34px; }
+      .spark-l { left: 4px; top: 0; } .spark-r { right: 4px; top: 0; width: 26px; height: 26px; }
+      .hero-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+      .hero-row p { color: var(--action); font-style: italic; max-width: 20em; line-height: 1.3; }
+      .burst {
+        flex: none; display: grid; place-items: center; width: 62px; height: 62px; text-align: center;
+        background: var(--action); color: var(--hl-yellow); font-style: italic; font-size: 14px; line-height: 1.1;
+        clip-path: polygon(50% 0, 60% 12%, 75% 6%, 78% 22%, 94% 25%, 88% 40%, 100% 50%, 88% 60%, 94% 75%, 78% 78%, 75% 94%, 60% 88%, 50% 100%, 40% 88%, 25% 94%, 22% 78%, 6% 75%, 12% 60%, 0 50%, 12% 40%, 6% 25%, 22% 22%, 25% 6%, 40% 12%);
+        transform: rotate(-8deg);
+      }
+      .burst + p + .burst { transform: rotate(8deg); }
+      button {
+        background: var(--surface); color: var(--text);
+        border: 2px solid var(--line-strong); border-radius: 999px; font-weight: 700;
+        box-shadow: 2px 2px 0 var(--line-strong);
+      }
+      button:active { transform: translate(2px, 2px); box-shadow: none; }
+      button.primary { background: var(--action); color: var(--action-ink); border-color: var(--line-strong); }
+      .segments button[aria-pressed='true'] { background: var(--hl-yellow); color: var(--text); outline: none; border-color: var(--line-strong); }
+      .lang-bar { margin: 0 0 10px; }
+      .set-cards button { border-radius: 16px; }
+      .set-cards button[aria-pressed="true"] { background: var(--hl-green); color: #161210; outline: none; }
+      .set-cards button[aria-pressed="true"] small { color: #2a3a30; }
+      .grid { background: transparent; border: 2px solid var(--line-strong); }
+      .cell { background: var(--surface); border: 1px solid var(--line-strong); font-weight: 900; color: var(--text);
+        font-family: var(--display); }
+      .cell.is-entry { background: var(--hl-yellow); }
+      .cell.is-entry .num, .cell .num { background: transparent; }
+      .cell.is-selected { outline: 3px solid var(--action); outline-offset: -3px; background: var(--hl-orange); color: #161210; }
+      .cell.is-solved { background: var(--hl-green); color: #161210; }
+      .cell.is-finish { background: var(--hl-purple); color: #161210; }
+      .clue-bar { background: var(--hl-yellow); color: #161210; border: 2px solid var(--line-strong); border-radius: 22px; font-weight: 700; }
+      .clue-lists button { border-radius: 14px; box-shadow: none; font-weight: 600; }
+      .clue-lists button.is-solved { background: var(--hl-green); color: #161210; }
+      .key-row button { border-radius: 8px; box-shadow: 1px 1px 0 var(--line-strong); }
+      .settings, .finish, #checkResult, .term-card, .term-row { border-color: var(--line-strong); }
+      .settings { border: 2px solid var(--line-strong); border-radius: 18px; }
+      .term-card { border-inline-start: 6px solid var(--action); border-radius: 12px; }
+      #toast { border: 2px solid var(--line-strong); border-radius: 14px; }
+      footer { text-align: center; }
+      .smile { width: 38px; height: 38px; display: block; margin: 0 auto 4px; }
+      @media (max-width: 400px) { .burst { width: 50px; height: 50px; font-size: 11px; } .spark-l { width: 26px; height: 26px; } }
+
+      /* ═══ เหรียญพิกเซลอาร์ต (สไปรต์ 8 เฟรม หมุนได้) ═══ */
+      :root { --coin-sprite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='16' viewBox='0 0 128 16' shape-rendering='crispEdges'%3E%3Crect x='6' y='0' width='4' height='1' fill='%233b2410'/%3E%3Crect x='4' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='6' y='1' width='4' height='1' fill='%23ffe066'/%3E%3Crect x='10' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='3' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='4' y='2' width='8' height='1' fill='%23ffe066'/%3E%3Crect x='12' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='3' y='3' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='5' y='3' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='6' y='3' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='7' y='3' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='11' y='3' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='12' y='3' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='13' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='4' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='4' y='4' width='2' height='1' fill='%23fffbe0'/%3E%3Crect x='6' y='4' width='6' height='1' fill='%23f9b52a'/%3E%3Crect x='12' y='4' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='14' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='5' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='3' y='5' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='4' y='5' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='5' y='5' width='7' height='1' fill='%23f9b52a'/%3E%3Crect x='12' y='5' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='14' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='6' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='3' y='6' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='4' y='6' width='7' height='1' fill='%23f9b52a'/%3E%3Crect x='11' y='6' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='14' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='0' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='7' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='3' y='7' width='7' height='1' fill='%23f9b52a'/%3E%3Crect x='10' y='7' width='5' height='1' fill='%23d98a0b'/%3E%3Crect x='15' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='0' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='8' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='3' y='8' width='6' height='1' fill='%23f9b52a'/%3E%3Crect x='9' y='8' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='15' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='9' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='3' y='9' width='5' height='1' fill='%23f9b52a'/%3E%3Crect x='8' y='9' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='14' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='10' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='3' y='10' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='7' y='10' width='7' height='1' fill='%23d98a0b'/%3E%3Crect x='14' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='1' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='11' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='4' y='11' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='6' y='11' width='8' height='1' fill='%23d98a0b'/%3E%3Crect x='14' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='2' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='3' y='12' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='4' y='12' width='9' height='1' fill='%23d98a0b'/%3E%3Crect x='13' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='3' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='4' y='13' width='8' height='1' fill='%23d98a0b'/%3E%3Crect x='12' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='4' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='6' y='14' width='4' height='1' fill='%23d98a0b'/%3E%3Crect x='10' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='6' y='15' width='4' height='1' fill='%233b2410'/%3E%3Crect x='23' y='0' width='2' height='1' fill='%233b2410'/%3E%3Crect x='21' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='23' y='1' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='25' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='20' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='21' y='2' width='6' height='1' fill='%23ffe066'/%3E%3Crect x='27' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='20' y='3' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='21' y='3' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='22' y='3' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='23' y='3' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='24' y='3' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='25' y='3' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='27' y='3' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='28' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='4' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='21' y='4' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='22' y='4' width='5' height='1' fill='%23f9b52a'/%3E%3Crect x='27' y='4' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='5' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='20' y='5' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='21' y='5' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='23' y='5' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='24' y='5' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='28' y='5' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='6' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='20' y='6' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='21' y='6' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='22' y='6' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='23' y='6' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='27' y='6' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='7' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='21' y='7' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='22' y='7' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='26' y='7' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='8' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='20' y='8' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='21' y='8' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='25' y='8' width='4' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='9' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='20' y='9' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='24' y='9' width='5' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='10' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='20' y='10' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='24' y='10' width='5' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='18' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='11' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='21' y='11' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='23' y='11' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='29' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='19' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='20' y='12' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='21' y='12' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='22' y='12' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='28' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='20' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='21' y='13' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='27' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='21' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='23' y='14' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='25' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='23' y='15' width='2' height='1' fill='%233b2410'/%3E%3Crect x='39' y='0' width='2' height='1' fill='%233b2410'/%3E%3Crect x='38' y='1' width='1' height='1' fill='%233b2410'/%3E%3Crect x='39' y='1' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='41' y='1' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='38' y='2' width='4' height='1' fill='%23ffe066'/%3E%3Crect x='42' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='38' y='3' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='42' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='4' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='38' y='4' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='42' y='4' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='5' width='5' height='1' fill='%23f9b52a'/%3E%3Crect x='42' y='5' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='6' width='5' height='1' fill='%23f9b52a'/%3E%3Crect x='42' y='6' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='7' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='41' y='7' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='8' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='41' y='8' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='9' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='40' y='9' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='10' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='40' y='10' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='36' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='11' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='38' y='11' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='39' y='11' width='4' height='1' fill='%23d98a0b'/%3E%3Crect x='43' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='38' y='12' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='39' y='12' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='42' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='37' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='38' y='13' width='4' height='1' fill='%23d98a0b'/%3E%3Crect x='42' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='38' y='14' width='1' height='1' fill='%233b2410'/%3E%3Crect x='39' y='14' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='41' y='14' width='1' height='1' fill='%233b2410'/%3E%3Crect x='39' y='15' width='2' height='1' fill='%233b2410'/%3E%3Crect x='55' y='0' width='2' height='1' fill='%233b2410'/%3E%3Crect x='55' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='54' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='2' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='57' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='3' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='57' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='4' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='57' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='5' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='57' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='53' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='6' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='57' y='6' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='58' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='53' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='7' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='57' y='7' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='58' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='53' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='8' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='56' y='8' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='58' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='53' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='9' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='56' y='9' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='58' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='10' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='56' y='10' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='57' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='11' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='57' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='12' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='57' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='54' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='13' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='57' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='55' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='55' y='15' width='2' height='1' fill='%233b2410'/%3E%3Crect x='70' y='1' width='4' height='1' fill='%233b2410'/%3E%3Crect x='70' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='2' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='72' y='2' width='1' height='1' fill='%23b86a06'/%3E%3Crect x='73' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='3' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='72' y='3' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='73' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='4' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='72' y='4' width='1' height='1' fill='%23b86a06'/%3E%3Crect x='73' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='5' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='72' y='5' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='73' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='6' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='72' y='6' width='1' height='1' fill='%23b86a06'/%3E%3Crect x='73' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='7' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='72' y='7' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='73' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='8' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='72' y='8' width='1' height='1' fill='%23b86a06'/%3E%3Crect x='73' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='9' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='72' y='9' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='73' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='10' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='72' y='10' width='1' height='1' fill='%23b86a06'/%3E%3Crect x='73' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='11' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='72' y='11' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='73' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='12' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='72' y='12' width='1' height='1' fill='%23b86a06'/%3E%3Crect x='73' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='71' y='13' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='72' y='13' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='73' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='70' y='14' width='4' height='1' fill='%233b2410'/%3E%3Crect x='87' y='0' width='2' height='1' fill='%233b2410'/%3E%3Crect x='87' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='86' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='2' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='89' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='3' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='89' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='4' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='89' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='5' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='89' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='85' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='6' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='87' y='6' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='90' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='85' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='7' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='87' y='7' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='90' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='85' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='8' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='88' y='8' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='90' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='85' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='9' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='88' y='9' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='90' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='10' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='88' y='10' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='89' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='11' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='89' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='12' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='89' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='86' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='13' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='89' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='87' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='87' y='15' width='2' height='1' fill='%233b2410'/%3E%3Crect x='103' y='0' width='2' height='1' fill='%233b2410'/%3E%3Crect x='102' y='1' width='1' height='1' fill='%233b2410'/%3E%3Crect x='103' y='1' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='105' y='1' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='102' y='2' width='4' height='1' fill='%23ffe066'/%3E%3Crect x='106' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='102' y='3' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='106' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='4' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='102' y='4' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='106' y='4' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='107' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='5' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='102' y='5' width='5' height='1' fill='%23f9b52a'/%3E%3Crect x='107' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='6' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='102' y='6' width='5' height='1' fill='%23f9b52a'/%3E%3Crect x='107' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='7' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='103' y='7' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='107' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='8' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='103' y='8' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='107' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='9' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='104' y='9' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='107' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='10' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='104' y='10' width='3' height='1' fill='%23f9b52a'/%3E%3Crect x='107' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='100' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='11' width='4' height='1' fill='%23d98a0b'/%3E%3Crect x='105' y='11' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='106' y='11' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='107' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='102' y='12' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='105' y='12' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='106' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='101' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='102' y='13' width='4' height='1' fill='%23d98a0b'/%3E%3Crect x='106' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='102' y='14' width='1' height='1' fill='%233b2410'/%3E%3Crect x='103' y='14' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='105' y='14' width='1' height='1' fill='%233b2410'/%3E%3Crect x='103' y='15' width='2' height='1' fill='%233b2410'/%3E%3Crect x='119' y='0' width='2' height='1' fill='%233b2410'/%3E%3Crect x='117' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='119' y='1' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='121' y='1' width='2' height='1' fill='%233b2410'/%3E%3Crect x='116' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='117' y='2' width='6' height='1' fill='%23ffe066'/%3E%3Crect x='123' y='2' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='116' y='3' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='117' y='3' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='119' y='3' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='120' y='3' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='121' y='3' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='122' y='3' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='123' y='3' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='124' y='3' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='4' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='117' y='4' width='5' height='1' fill='%23f9b52a'/%3E%3Crect x='122' y='4' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='123' y='4' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='125' y='4' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='5' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='116' y='5' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='120' y='5' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='121' y='5' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='123' y='5' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='124' y='5' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='125' y='5' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='6' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='117' y='6' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='121' y='6' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='122' y='6' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='123' y='6' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='124' y='6' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='125' y='6' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='7' width='3' height='1' fill='%23d98a0b'/%3E%3Crect x='118' y='7' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='122' y='7' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='123' y='7' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='125' y='7' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='8' width='4' height='1' fill='%23d98a0b'/%3E%3Crect x='119' y='8' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='123' y='8' width='1' height='1' fill='%23fffbe0'/%3E%3Crect x='124' y='8' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='125' y='8' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='9' width='5' height='1' fill='%23d98a0b'/%3E%3Crect x='120' y='9' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='124' y='9' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='125' y='9' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='10' width='5' height='1' fill='%23d98a0b'/%3E%3Crect x='120' y='10' width='4' height='1' fill='%23f9b52a'/%3E%3Crect x='124' y='10' width='1' height='1' fill='%23ffe066'/%3E%3Crect x='125' y='10' width='1' height='1' fill='%233b2410'/%3E%3Crect x='114' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='11' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='121' y='11' width='2' height='1' fill='%23f9b52a'/%3E%3Crect x='123' y='11' width='2' height='1' fill='%23ffe066'/%3E%3Crect x='125' y='11' width='1' height='1' fill='%233b2410'/%3E%3Crect x='115' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='116' y='12' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='122' y='12' width='1' height='1' fill='%23f9b52a'/%3E%3Crect x='123' y='12' width='1' height='1' fill='%23d98a0b'/%3E%3Crect x='124' y='12' width='1' height='1' fill='%233b2410'/%3E%3Crect x='116' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='117' y='13' width='6' height='1' fill='%23d98a0b'/%3E%3Crect x='123' y='13' width='1' height='1' fill='%233b2410'/%3E%3Crect x='117' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='119' y='14' width='2' height='1' fill='%23d98a0b'/%3E%3Crect x='121' y='14' width='2' height='1' fill='%233b2410'/%3E%3Crect x='119' y='15' width='2' height='1' fill='%233b2410'/%3E%3C/svg%3E"); --coin-size: 32px; }
+      .medal { width: var(--coin-size); height: var(--coin-size); }
+      .medals .medal, #badgeList .medal, #instructions .medal {
+        width: var(--coin-size); height: var(--coin-size);
+        background: var(--coin-sprite) 0 0 / 800% 100% no-repeat;
+        image-rendering: pixelated; vertical-align: middle;
+        filter: grayscale(1) opacity(.45);
+      }
+      .medal > * { display: none; }
+      .medal.earned, #instructions .medal { filter: drop-shadow(1px 1px 0 var(--line-strong)); }
+      .medal.earned { animation: coin-spin 1.2s steps(1, end) infinite; }
+      @keyframes coin-spin {
+        0% { background-position: 0 0; } 12.5% { background-position: 14.2857% 0; }
+        25% { background-position: 28.5714% 0; } 37.5% { background-position: 42.8571% 0; }
+        50% { background-position: 57.1429% 0; } 62.5% { background-position: 71.4286% 0; }
+        75% { background-position: 85.7143% 0; } 87.5% { background-position: 100% 0; }
+      }
+      .medals { display: flex; gap: 8px; flex-wrap: wrap; }
+      #badgeList { list-style: none; padding: 0; }
+      #badgeList li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+      #score::before {
+        content: ""; display: inline-block; width: 20px; height: 20px; margin-inline-end: 5px; vertical-align: -4px;
+        background: var(--coin-sprite) 0 0 / 800% 100% no-repeat; image-rendering: pixelated;
+      }
+      @media (prefers-reduced-motion: reduce) { .medal.earned { animation: none; } }
+      :root[data-reduce='true'] .medal.earned { animation: none; }
+
+      /* ═══ ชื่อเกมแบบฟอนต์พิกเซล (ตามโปสเตอร์ PIXELS) ═══ */
+      .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+      h1.pix-h1 {
+        background-color: #1c2170; background-image: var(--grunge);
+        border: 3px solid var(--line-strong); box-shadow: 4px 4px 0 var(--line-strong);
+        padding: 14px 12px 10px; margin: 8px 6px 6px; line-height: 0;
+      }
+      .pix-title { display: block; width: 100%; max-width: 440px; height: auto; margin: 0 auto; }
+      .pt-f { fill: #f8f0d4; } .pt-g { fill: #4cc35a; } .pt-o { fill: #ee5a24; }
+      [data-screen="play"] .pix-title { max-width: 300px; }
+      .spark { fill: #f5e23a; stroke: var(--line-strong); stroke-width: 1.5; z-index: 1; }
+      .hero { padding-top: 14px; }
+      .spark-l { left: -2px; top: -4px; } .spark-r { right: -2px; top: -4px; }
+
+      /* ═══ โทนสีเรโทรอาร์เคด (น้ำเงินกรม · ส้ม · เขียว · เหลือง · ครีม) ═══ */
+      :root {
+        --bg: #f3ecd2; --surface: #fffaf0; --surface-2: #ece3c2;
+        --line: #3b3f7a; --line-strong: #14163f;
+        --text: #14163f; --text-soft: #3b3f7a; --muted: #6b6e9c;
+        --action: #ee5a24; --action-ink: #14163f; --action-soft: #fbd9c6;
+        --blue: #1c2170; --blue-soft: #dde0f7; --brass: #c2410c;
+        --good: #1f8a3a; --bad: #c62828;
+        --hl-yellow: #f5e23a; --hl-green: #5fd16a; --hl-purple: #5fd16a; --hl-orange: #ff9a4d;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --bg: #12154f; --surface: #1c2170; --surface-2: #262c8a;
+          --line: #5a5fb8; --line-strong: #f8f0d4;
+          --text: #f8f0d4; --text-soft: #d6d3f0; --muted: #a9a8d6;
+          --action: #ff6a2a; --action-ink: #14163f; --action-soft: #5a2c3f;
+          --blue: #5fd16a; --blue-soft: #1f3a7a; --brass: #f5e23a;
+          --good: #5fd16a; --bad: #ff8a80; --hl-yellow: #5c5a14;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #12154f; --surface: #1c2170; --surface-2: #262c8a;
+        --line: #5a5fb8; --line-strong: #f8f0d4;
+        --text: #f8f0d4; --text-soft: #d6d3f0; --muted: #a9a8d6;
+        --action: #ff6a2a; --action-ink: #14163f; --action-soft: #5a2c3f;
+        --blue: #5fd16a; --blue-soft: #1f3a7a; --brass: #f5e23a;
+        --good: #5fd16a; --bad: #ff8a80; --hl-yellow: #5c5a14;
+      }
+      html { background: #0c0f3a; }
+      body {
+        background-color: #0c0f3a;
+        background-image: radial-gradient(rgba(255,255,255,.07) 1.5px, transparent 1.5px);
+        background-size: 14px 14px;
+      }
+      main {
+        background-image: var(--grunge), linear-gradient(var(--bg), var(--bg)),
+          repeating-conic-gradient(#1c2170 0 25%, #ee5a24 0 50%);
+      }
+      h2 { color: var(--blue); }
+      :root[data-theme="dark"] h2, :root[data-theme="dark"] .hero-row p { color: var(--brass); }
+      .hero-row p { color: var(--blue); font-weight: 700; }
+      .burst { background: var(--action); color: #f5e23a; }
+      .cell.is-finish { background: #5fd16a; }
+      .cell.is-selected { background: var(--hl-orange); }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) h2, :root:not([data-theme='light']) .hero-row p { color: var(--brass); }
+        :root:not([data-theme='light']) .clue-bar { color: var(--text); }
+        :root:not([data-theme='light']) .cell.is-entry { color: var(--text); }
+      }
+      :root[data-theme="dark"] .clue-bar { color: var(--text); }
     </style>
   </head>
   <body>
     <main>
       <section data-screen="home">
-        <header><h1 tabindex="-1">ปริศนาศัพท์ดนตรี</h1><p>ไขศัพท์ดนตรี แล้วฟังว่าคำนั้นเป็นเสียงแบบไหน</p></header>
+        <header class="hero">
+          <svg class="spark spark-l" aria-hidden="true" viewBox="0 0 40 40"><path d="M20 0 24 16 40 20 24 24 20 40 16 24 0 20 16 16Z"/></svg>
+          <svg class="spark spark-r" aria-hidden="true" viewBox="0 0 40 40"><path d="M20 0 24 16 40 20 24 24 20 40 16 24 0 20 16 16Z"/></svg>
+          <h1 class="pix-h1" tabindex="-1"><span class="sr-only">Music Term Crossword</span><svg class="pix-title" aria-hidden="true" viewBox="0 0 67 20" shape-rendering="crispEdges"><path class="pt-o" d="M2 2h2v1h-2zM6 2h2v1h-2zM9 2h2v1h-2zM13 2h2v1h-2zM17 2h5v1h-5zM23 2h4v1h-4zM29 2h4v1h-4zM38 2h6v1h-6zM45 2h6v1h-6zM52 2h5v1h-5zM59 2h2v1h-2zM63 2h2v1h-2zM2 3h6v1h-6zM9 3h2v1h-2zM13 3h2v1h-2zM16 3h6v1h-6zM24 3h2v1h-2zM28 3h6v1h-6zM38 3h6v1h-6zM45 3h6v1h-6zM52 3h6v1h-6zM59 3h6v1h-6zM2 4h6v1h-6zM9 4h2v1h-2zM13 4h2v1h-2zM16 4h2v1h-2zM24 4h2v1h-2zM28 4h2v1h-2zM40 4h2v1h-2zM45 4h2v1h-2zM52 4h2v1h-2zM56 4h2v1h-2zM59 4h6v1h-6zM2 5h2v1h-2zM6 5h2v1h-2zM9 5h2v1h-2zM13 5h2v1h-2zM17 5h4v1h-4zM24 5h2v1h-2zM28 5h2v1h-2zM40 5h2v1h-2zM45 5h4v1h-4zM52 5h5v1h-5zM59 5h2v1h-2zM63 5h2v1h-2zM2 6h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM13 6h2v1h-2zM20 6h2v1h-2zM24 6h2v1h-2zM28 6h2v1h-2zM40 6h2v1h-2zM45 6h2v1h-2zM52 6h4v1h-4zM59 6h2v1h-2zM63 6h2v1h-2zM2 7h2v1h-2zM6 7h2v1h-2zM9 7h6v1h-6zM16 7h6v1h-6zM24 7h2v1h-2zM28 7h6v1h-6zM40 7h2v1h-2zM45 7h6v1h-6zM52 7h2v1h-2zM56 7h2v1h-2zM59 7h2v1h-2zM63 7h2v1h-2zM2 8h2v1h-2zM6 8h2v1h-2zM10 8h4v1h-4zM16 8h5v1h-5zM23 8h4v1h-4zM29 8h4v1h-4zM40 8h2v1h-2zM45 8h6v1h-6zM52 8h2v1h-2zM56 8h2v1h-2zM59 8h2v1h-2zM63 8h2v1h-2zM3 12h4v1h-4zM9 12h5v1h-5zM17 12h4v1h-4zM24 12h5v1h-5zM31 12h5v1h-5zM37 12h2v1h-2zM43 12h2v1h-2zM47 12h4v1h-4zM53 12h5v1h-5zM60 12h5v1h-5zM2 13h6v1h-6zM9 13h6v1h-6zM16 13h6v1h-6zM23 13h6v1h-6zM30 13h6v1h-6zM37 13h2v1h-2zM43 13h2v1h-2zM46 13h6v1h-6zM53 13h6v1h-6zM60 13h6v1h-6zM2 14h2v1h-2zM9 14h2v1h-2zM13 14h2v1h-2zM16 14h2v1h-2zM20 14h2v1h-2zM23 14h2v1h-2zM30 14h2v1h-2zM37 14h2v1h-2zM40 14h2v1h-2zM43 14h2v1h-2zM46 14h2v1h-2zM50 14h2v1h-2zM53 14h2v1h-2zM57 14h2v1h-2zM60 14h2v1h-2zM64 14h2v1h-2zM2 15h2v1h-2zM9 15h5v1h-5zM16 15h2v1h-2zM20 15h2v1h-2zM24 15h4v1h-4zM31 15h4v1h-4zM37 15h2v1h-2zM40 15h2v1h-2zM43 15h2v1h-2zM46 15h2v1h-2zM50 15h2v1h-2zM53 15h5v1h-5zM60 15h2v1h-2zM64 15h2v1h-2zM2 16h2v1h-2zM9 16h4v1h-4zM16 16h2v1h-2zM20 16h2v1h-2zM27 16h2v1h-2zM34 16h2v1h-2zM37 16h2v1h-2zM40 16h2v1h-2zM43 16h2v1h-2zM46 16h2v1h-2zM50 16h2v1h-2zM53 16h4v1h-4zM60 16h2v1h-2zM64 16h2v1h-2zM2 17h6v1h-6zM9 17h2v1h-2zM13 17h2v1h-2zM16 17h6v1h-6zM23 17h6v1h-6zM30 17h6v1h-6zM37 17h8v1h-8zM46 17h6v1h-6zM53 17h2v1h-2zM57 17h2v1h-2zM60 17h6v1h-6zM3 18h4v1h-4zM9 18h2v1h-2zM13 18h2v1h-2zM17 18h4v1h-4zM23 18h5v1h-5zM30 18h5v1h-5zM38 18h6v1h-6zM47 18h4v1h-4zM53 18h2v1h-2zM57 18h2v1h-2zM60 18h5v1h-5z"/><path class="pt-g" d="M1 1h2v1h-2zM5 1h2v1h-2zM8 1h2v1h-2zM12 1h2v1h-2zM16 1h5v1h-5zM22 1h4v1h-4zM28 1h4v1h-4zM37 1h6v1h-6zM44 1h6v1h-6zM51 1h5v1h-5zM58 1h2v1h-2zM62 1h2v1h-2zM1 2h6v1h-6zM8 2h2v1h-2zM12 2h2v1h-2zM15 2h6v1h-6zM23 2h2v1h-2zM27 2h6v1h-6zM37 2h6v1h-6zM44 2h6v1h-6zM51 2h6v1h-6zM58 2h6v1h-6zM1 3h6v1h-6zM8 3h2v1h-2zM12 3h2v1h-2zM15 3h2v1h-2zM23 3h2v1h-2zM27 3h2v1h-2zM39 3h2v1h-2zM44 3h2v1h-2zM51 3h2v1h-2zM55 3h2v1h-2zM58 3h6v1h-6zM1 4h2v1h-2zM5 4h2v1h-2zM8 4h2v1h-2zM12 4h2v1h-2zM16 4h4v1h-4zM23 4h2v1h-2zM27 4h2v1h-2zM39 4h2v1h-2zM44 4h4v1h-4zM51 4h5v1h-5zM58 4h2v1h-2zM62 4h2v1h-2zM1 5h2v1h-2zM5 5h2v1h-2zM8 5h2v1h-2zM12 5h2v1h-2zM19 5h2v1h-2zM23 5h2v1h-2zM27 5h2v1h-2zM39 5h2v1h-2zM44 5h2v1h-2zM51 5h4v1h-4zM58 5h2v1h-2zM62 5h2v1h-2zM1 6h2v1h-2zM5 6h2v1h-2zM8 6h6v1h-6zM15 6h6v1h-6zM23 6h2v1h-2zM27 6h6v1h-6zM39 6h2v1h-2zM44 6h6v1h-6zM51 6h2v1h-2zM55 6h2v1h-2zM58 6h2v1h-2zM62 6h2v1h-2zM1 7h2v1h-2zM5 7h2v1h-2zM9 7h4v1h-4zM15 7h5v1h-5zM22 7h4v1h-4zM28 7h4v1h-4zM39 7h2v1h-2zM44 7h6v1h-6zM51 7h2v1h-2zM55 7h2v1h-2zM58 7h2v1h-2zM62 7h2v1h-2zM2 11h4v1h-4zM8 11h5v1h-5zM16 11h4v1h-4zM23 11h5v1h-5zM30 11h5v1h-5zM36 11h2v1h-2zM42 11h2v1h-2zM46 11h4v1h-4zM52 11h5v1h-5zM59 11h5v1h-5zM1 12h6v1h-6zM8 12h6v1h-6zM15 12h6v1h-6zM22 12h6v1h-6zM29 12h6v1h-6zM36 12h2v1h-2zM42 12h2v1h-2zM45 12h6v1h-6zM52 12h6v1h-6zM59 12h6v1h-6zM1 13h2v1h-2zM8 13h2v1h-2zM12 13h2v1h-2zM15 13h2v1h-2zM19 13h2v1h-2zM22 13h2v1h-2zM29 13h2v1h-2zM36 13h2v1h-2zM39 13h2v1h-2zM42 13h2v1h-2zM45 13h2v1h-2zM49 13h2v1h-2zM52 13h2v1h-2zM56 13h2v1h-2zM59 13h2v1h-2zM63 13h2v1h-2zM1 14h2v1h-2zM8 14h5v1h-5zM15 14h2v1h-2zM19 14h2v1h-2zM23 14h4v1h-4zM30 14h4v1h-4zM36 14h2v1h-2zM39 14h2v1h-2zM42 14h2v1h-2zM45 14h2v1h-2zM49 14h2v1h-2zM52 14h5v1h-5zM59 14h2v1h-2zM63 14h2v1h-2zM1 15h2v1h-2zM8 15h4v1h-4zM15 15h2v1h-2zM19 15h2v1h-2zM26 15h2v1h-2zM33 15h2v1h-2zM36 15h2v1h-2zM39 15h2v1h-2zM42 15h2v1h-2zM45 15h2v1h-2zM49 15h2v1h-2zM52 15h4v1h-4zM59 15h2v1h-2zM63 15h2v1h-2zM1 16h6v1h-6zM8 16h2v1h-2zM12 16h2v1h-2zM15 16h6v1h-6zM22 16h6v1h-6zM29 16h6v1h-6zM36 16h8v1h-8zM45 16h6v1h-6zM52 16h2v1h-2zM56 16h2v1h-2zM59 16h6v1h-6zM2 17h4v1h-4zM8 17h2v1h-2zM12 17h2v1h-2zM16 17h4v1h-4zM22 17h5v1h-5zM29 17h5v1h-5zM37 17h6v1h-6zM46 17h4v1h-4zM52 17h2v1h-2zM56 17h2v1h-2zM59 17h5v1h-5z"/><path class="pt-f" d="M0 0h2v1h-2zM4 0h2v1h-2zM7 0h2v1h-2zM11 0h2v1h-2zM15 0h5v1h-5zM21 0h4v1h-4zM27 0h4v1h-4zM36 0h6v1h-6zM43 0h6v1h-6zM50 0h5v1h-5zM57 0h2v1h-2zM61 0h2v1h-2zM0 1h6v1h-6zM7 1h2v1h-2zM11 1h2v1h-2zM14 1h6v1h-6zM22 1h2v1h-2zM26 1h6v1h-6zM36 1h6v1h-6zM43 1h6v1h-6zM50 1h6v1h-6zM57 1h6v1h-6zM0 2h6v1h-6zM7 2h2v1h-2zM11 2h2v1h-2zM14 2h2v1h-2zM22 2h2v1h-2zM26 2h2v1h-2zM38 2h2v1h-2zM43 2h2v1h-2zM50 2h2v1h-2zM54 2h2v1h-2zM57 2h6v1h-6zM0 3h2v1h-2zM4 3h2v1h-2zM7 3h2v1h-2zM11 3h2v1h-2zM15 3h4v1h-4zM22 3h2v1h-2zM26 3h2v1h-2zM38 3h2v1h-2zM43 3h4v1h-4zM50 3h5v1h-5zM57 3h2v1h-2zM61 3h2v1h-2zM0 4h2v1h-2zM4 4h2v1h-2zM7 4h2v1h-2zM11 4h2v1h-2zM18 4h2v1h-2zM22 4h2v1h-2zM26 4h2v1h-2zM38 4h2v1h-2zM43 4h2v1h-2zM50 4h4v1h-4zM57 4h2v1h-2zM61 4h2v1h-2zM0 5h2v1h-2zM4 5h2v1h-2zM7 5h6v1h-6zM14 5h6v1h-6zM22 5h2v1h-2zM26 5h6v1h-6zM38 5h2v1h-2zM43 5h6v1h-6zM50 5h2v1h-2zM54 5h2v1h-2zM57 5h2v1h-2zM61 5h2v1h-2zM0 6h2v1h-2zM4 6h2v1h-2zM8 6h4v1h-4zM14 6h5v1h-5zM21 6h4v1h-4zM27 6h4v1h-4zM38 6h2v1h-2zM43 6h6v1h-6zM50 6h2v1h-2zM54 6h2v1h-2zM57 6h2v1h-2zM61 6h2v1h-2zM1 10h4v1h-4zM7 10h5v1h-5zM15 10h4v1h-4zM22 10h5v1h-5zM29 10h5v1h-5zM35 10h2v1h-2zM41 10h2v1h-2zM45 10h4v1h-4zM51 10h5v1h-5zM58 10h5v1h-5zM0 11h6v1h-6zM7 11h6v1h-6zM14 11h6v1h-6zM21 11h6v1h-6zM28 11h6v1h-6zM35 11h2v1h-2zM41 11h2v1h-2zM44 11h6v1h-6zM51 11h6v1h-6zM58 11h6v1h-6zM0 12h2v1h-2zM7 12h2v1h-2zM11 12h2v1h-2zM14 12h2v1h-2zM18 12h2v1h-2zM21 12h2v1h-2zM28 12h2v1h-2zM35 12h2v1h-2zM38 12h2v1h-2zM41 12h2v1h-2zM44 12h2v1h-2zM48 12h2v1h-2zM51 12h2v1h-2zM55 12h2v1h-2zM58 12h2v1h-2zM62 12h2v1h-2zM0 13h2v1h-2zM7 13h5v1h-5zM14 13h2v1h-2zM18 13h2v1h-2zM22 13h4v1h-4zM29 13h4v1h-4zM35 13h2v1h-2zM38 13h2v1h-2zM41 13h2v1h-2zM44 13h2v1h-2zM48 13h2v1h-2zM51 13h5v1h-5zM58 13h2v1h-2zM62 13h2v1h-2zM0 14h2v1h-2zM7 14h4v1h-4zM14 14h2v1h-2zM18 14h2v1h-2zM25 14h2v1h-2zM32 14h2v1h-2zM35 14h2v1h-2zM38 14h2v1h-2zM41 14h2v1h-2zM44 14h2v1h-2zM48 14h2v1h-2zM51 14h4v1h-4zM58 14h2v1h-2zM62 14h2v1h-2zM0 15h6v1h-6zM7 15h2v1h-2zM11 15h2v1h-2zM14 15h6v1h-6zM21 15h6v1h-6zM28 15h6v1h-6zM35 15h8v1h-8zM44 15h6v1h-6zM51 15h2v1h-2zM55 15h2v1h-2zM58 15h6v1h-6zM1 16h4v1h-4zM7 16h2v1h-2zM11 16h2v1h-2zM15 16h4v1h-4zM21 16h5v1h-5zM28 16h5v1h-5zM36 16h6v1h-6zM45 16h4v1h-4zM51 16h2v1h-2zM55 16h2v1h-2zM58 16h5v1h-5z"/></svg></h1>
+          <div class="hero-row"><span class="burst" aria-hidden="true">fun!</span><p>ไขศัพท์ดนตรี แล้วฟังว่าคำนั้นเป็นเสียงแบบไหน</p><span class="burst" aria-hidden="true">IT DE FR EN</span></div>
+        </header>
         <h2>ชุดคำศัพท์</h2>
         <div id="sets" class="set-cards"></div>
         <h2>เลือกโหมด</h2>
@@ -436,7 +624,7 @@
         <p id="storageNotice" role="status"></p>
       </section>
       <section data-screen="play" hidden>
-        <h1 tabindex="-1">ปริศนาศัพท์ดนตรี</h1>
+        <h1 class="pix-h1" tabindex="-1"><span class="sr-only">Music Term Crossword</span><svg class="pix-title" aria-hidden="true" viewBox="0 0 67 20" shape-rendering="crispEdges"><path class="pt-o" d="M2 2h2v1h-2zM6 2h2v1h-2zM9 2h2v1h-2zM13 2h2v1h-2zM17 2h5v1h-5zM23 2h4v1h-4zM29 2h4v1h-4zM38 2h6v1h-6zM45 2h6v1h-6zM52 2h5v1h-5zM59 2h2v1h-2zM63 2h2v1h-2zM2 3h6v1h-6zM9 3h2v1h-2zM13 3h2v1h-2zM16 3h6v1h-6zM24 3h2v1h-2zM28 3h6v1h-6zM38 3h6v1h-6zM45 3h6v1h-6zM52 3h6v1h-6zM59 3h6v1h-6zM2 4h6v1h-6zM9 4h2v1h-2zM13 4h2v1h-2zM16 4h2v1h-2zM24 4h2v1h-2zM28 4h2v1h-2zM40 4h2v1h-2zM45 4h2v1h-2zM52 4h2v1h-2zM56 4h2v1h-2zM59 4h6v1h-6zM2 5h2v1h-2zM6 5h2v1h-2zM9 5h2v1h-2zM13 5h2v1h-2zM17 5h4v1h-4zM24 5h2v1h-2zM28 5h2v1h-2zM40 5h2v1h-2zM45 5h4v1h-4zM52 5h5v1h-5zM59 5h2v1h-2zM63 5h2v1h-2zM2 6h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM13 6h2v1h-2zM20 6h2v1h-2zM24 6h2v1h-2zM28 6h2v1h-2zM40 6h2v1h-2zM45 6h2v1h-2zM52 6h4v1h-4zM59 6h2v1h-2zM63 6h2v1h-2zM2 7h2v1h-2zM6 7h2v1h-2zM9 7h6v1h-6zM16 7h6v1h-6zM24 7h2v1h-2zM28 7h6v1h-6zM40 7h2v1h-2zM45 7h6v1h-6zM52 7h2v1h-2zM56 7h2v1h-2zM59 7h2v1h-2zM63 7h2v1h-2zM2 8h2v1h-2zM6 8h2v1h-2zM10 8h4v1h-4zM16 8h5v1h-5zM23 8h4v1h-4zM29 8h4v1h-4zM40 8h2v1h-2zM45 8h6v1h-6zM52 8h2v1h-2zM56 8h2v1h-2zM59 8h2v1h-2zM63 8h2v1h-2zM3 12h4v1h-4zM9 12h5v1h-5zM17 12h4v1h-4zM24 12h5v1h-5zM31 12h5v1h-5zM37 12h2v1h-2zM43 12h2v1h-2zM47 12h4v1h-4zM53 12h5v1h-5zM60 12h5v1h-5zM2 13h6v1h-6zM9 13h6v1h-6zM16 13h6v1h-6zM23 13h6v1h-6zM30 13h6v1h-6zM37 13h2v1h-2zM43 13h2v1h-2zM46 13h6v1h-6zM53 13h6v1h-6zM60 13h6v1h-6zM2 14h2v1h-2zM9 14h2v1h-2zM13 14h2v1h-2zM16 14h2v1h-2zM20 14h2v1h-2zM23 14h2v1h-2zM30 14h2v1h-2zM37 14h2v1h-2zM40 14h2v1h-2zM43 14h2v1h-2zM46 14h2v1h-2zM50 14h2v1h-2zM53 14h2v1h-2zM57 14h2v1h-2zM60 14h2v1h-2zM64 14h2v1h-2zM2 15h2v1h-2zM9 15h5v1h-5zM16 15h2v1h-2zM20 15h2v1h-2zM24 15h4v1h-4zM31 15h4v1h-4zM37 15h2v1h-2zM40 15h2v1h-2zM43 15h2v1h-2zM46 15h2v1h-2zM50 15h2v1h-2zM53 15h5v1h-5zM60 15h2v1h-2zM64 15h2v1h-2zM2 16h2v1h-2zM9 16h4v1h-4zM16 16h2v1h-2zM20 16h2v1h-2zM27 16h2v1h-2zM34 16h2v1h-2zM37 16h2v1h-2zM40 16h2v1h-2zM43 16h2v1h-2zM46 16h2v1h-2zM50 16h2v1h-2zM53 16h4v1h-4zM60 16h2v1h-2zM64 16h2v1h-2zM2 17h6v1h-6zM9 17h2v1h-2zM13 17h2v1h-2zM16 17h6v1h-6zM23 17h6v1h-6zM30 17h6v1h-6zM37 17h8v1h-8zM46 17h6v1h-6zM53 17h2v1h-2zM57 17h2v1h-2zM60 17h6v1h-6zM3 18h4v1h-4zM9 18h2v1h-2zM13 18h2v1h-2zM17 18h4v1h-4zM23 18h5v1h-5zM30 18h5v1h-5zM38 18h6v1h-6zM47 18h4v1h-4zM53 18h2v1h-2zM57 18h2v1h-2zM60 18h5v1h-5z"/><path class="pt-g" d="M1 1h2v1h-2zM5 1h2v1h-2zM8 1h2v1h-2zM12 1h2v1h-2zM16 1h5v1h-5zM22 1h4v1h-4zM28 1h4v1h-4zM37 1h6v1h-6zM44 1h6v1h-6zM51 1h5v1h-5zM58 1h2v1h-2zM62 1h2v1h-2zM1 2h6v1h-6zM8 2h2v1h-2zM12 2h2v1h-2zM15 2h6v1h-6zM23 2h2v1h-2zM27 2h6v1h-6zM37 2h6v1h-6zM44 2h6v1h-6zM51 2h6v1h-6zM58 2h6v1h-6zM1 3h6v1h-6zM8 3h2v1h-2zM12 3h2v1h-2zM15 3h2v1h-2zM23 3h2v1h-2zM27 3h2v1h-2zM39 3h2v1h-2zM44 3h2v1h-2zM51 3h2v1h-2zM55 3h2v1h-2zM58 3h6v1h-6zM1 4h2v1h-2zM5 4h2v1h-2zM8 4h2v1h-2zM12 4h2v1h-2zM16 4h4v1h-4zM23 4h2v1h-2zM27 4h2v1h-2zM39 4h2v1h-2zM44 4h4v1h-4zM51 4h5v1h-5zM58 4h2v1h-2zM62 4h2v1h-2zM1 5h2v1h-2zM5 5h2v1h-2zM8 5h2v1h-2zM12 5h2v1h-2zM19 5h2v1h-2zM23 5h2v1h-2zM27 5h2v1h-2zM39 5h2v1h-2zM44 5h2v1h-2zM51 5h4v1h-4zM58 5h2v1h-2zM62 5h2v1h-2zM1 6h2v1h-2zM5 6h2v1h-2zM8 6h6v1h-6zM15 6h6v1h-6zM23 6h2v1h-2zM27 6h6v1h-6zM39 6h2v1h-2zM44 6h6v1h-6zM51 6h2v1h-2zM55 6h2v1h-2zM58 6h2v1h-2zM62 6h2v1h-2zM1 7h2v1h-2zM5 7h2v1h-2zM9 7h4v1h-4zM15 7h5v1h-5zM22 7h4v1h-4zM28 7h4v1h-4zM39 7h2v1h-2zM44 7h6v1h-6zM51 7h2v1h-2zM55 7h2v1h-2zM58 7h2v1h-2zM62 7h2v1h-2zM2 11h4v1h-4zM8 11h5v1h-5zM16 11h4v1h-4zM23 11h5v1h-5zM30 11h5v1h-5zM36 11h2v1h-2zM42 11h2v1h-2zM46 11h4v1h-4zM52 11h5v1h-5zM59 11h5v1h-5zM1 12h6v1h-6zM8 12h6v1h-6zM15 12h6v1h-6zM22 12h6v1h-6zM29 12h6v1h-6zM36 12h2v1h-2zM42 12h2v1h-2zM45 12h6v1h-6zM52 12h6v1h-6zM59 12h6v1h-6zM1 13h2v1h-2zM8 13h2v1h-2zM12 13h2v1h-2zM15 13h2v1h-2zM19 13h2v1h-2zM22 13h2v1h-2zM29 13h2v1h-2zM36 13h2v1h-2zM39 13h2v1h-2zM42 13h2v1h-2zM45 13h2v1h-2zM49 13h2v1h-2zM52 13h2v1h-2zM56 13h2v1h-2zM59 13h2v1h-2zM63 13h2v1h-2zM1 14h2v1h-2zM8 14h5v1h-5zM15 14h2v1h-2zM19 14h2v1h-2zM23 14h4v1h-4zM30 14h4v1h-4zM36 14h2v1h-2zM39 14h2v1h-2zM42 14h2v1h-2zM45 14h2v1h-2zM49 14h2v1h-2zM52 14h5v1h-5zM59 14h2v1h-2zM63 14h2v1h-2zM1 15h2v1h-2zM8 15h4v1h-4zM15 15h2v1h-2zM19 15h2v1h-2zM26 15h2v1h-2zM33 15h2v1h-2zM36 15h2v1h-2zM39 15h2v1h-2zM42 15h2v1h-2zM45 15h2v1h-2zM49 15h2v1h-2zM52 15h4v1h-4zM59 15h2v1h-2zM63 15h2v1h-2zM1 16h6v1h-6zM8 16h2v1h-2zM12 16h2v1h-2zM15 16h6v1h-6zM22 16h6v1h-6zM29 16h6v1h-6zM36 16h8v1h-8zM45 16h6v1h-6zM52 16h2v1h-2zM56 16h2v1h-2zM59 16h6v1h-6zM2 17h4v1h-4zM8 17h2v1h-2zM12 17h2v1h-2zM16 17h4v1h-4zM22 17h5v1h-5zM29 17h5v1h-5zM37 17h6v1h-6zM46 17h4v1h-4zM52 17h2v1h-2zM56 17h2v1h-2zM59 17h5v1h-5z"/><path class="pt-f" d="M0 0h2v1h-2zM4 0h2v1h-2zM7 0h2v1h-2zM11 0h2v1h-2zM15 0h5v1h-5zM21 0h4v1h-4zM27 0h4v1h-4zM36 0h6v1h-6zM43 0h6v1h-6zM50 0h5v1h-5zM57 0h2v1h-2zM61 0h2v1h-2zM0 1h6v1h-6zM7 1h2v1h-2zM11 1h2v1h-2zM14 1h6v1h-6zM22 1h2v1h-2zM26 1h6v1h-6zM36 1h6v1h-6zM43 1h6v1h-6zM50 1h6v1h-6zM57 1h6v1h-6zM0 2h6v1h-6zM7 2h2v1h-2zM11 2h2v1h-2zM14 2h2v1h-2zM22 2h2v1h-2zM26 2h2v1h-2zM38 2h2v1h-2zM43 2h2v1h-2zM50 2h2v1h-2zM54 2h2v1h-2zM57 2h6v1h-6zM0 3h2v1h-2zM4 3h2v1h-2zM7 3h2v1h-2zM11 3h2v1h-2zM15 3h4v1h-4zM22 3h2v1h-2zM26 3h2v1h-2zM38 3h2v1h-2zM43 3h4v1h-4zM50 3h5v1h-5zM57 3h2v1h-2zM61 3h2v1h-2zM0 4h2v1h-2zM4 4h2v1h-2zM7 4h2v1h-2zM11 4h2v1h-2zM18 4h2v1h-2zM22 4h2v1h-2zM26 4h2v1h-2zM38 4h2v1h-2zM43 4h2v1h-2zM50 4h4v1h-4zM57 4h2v1h-2zM61 4h2v1h-2zM0 5h2v1h-2zM4 5h2v1h-2zM7 5h6v1h-6zM14 5h6v1h-6zM22 5h2v1h-2zM26 5h6v1h-6zM38 5h2v1h-2zM43 5h6v1h-6zM50 5h2v1h-2zM54 5h2v1h-2zM57 5h2v1h-2zM61 5h2v1h-2zM0 6h2v1h-2zM4 6h2v1h-2zM8 6h4v1h-4zM14 6h5v1h-5zM21 6h4v1h-4zM27 6h4v1h-4zM38 6h2v1h-2zM43 6h6v1h-6zM50 6h2v1h-2zM54 6h2v1h-2zM57 6h2v1h-2zM61 6h2v1h-2zM1 10h4v1h-4zM7 10h5v1h-5zM15 10h4v1h-4zM22 10h5v1h-5zM29 10h5v1h-5zM35 10h2v1h-2zM41 10h2v1h-2zM45 10h4v1h-4zM51 10h5v1h-5zM58 10h5v1h-5zM0 11h6v1h-6zM7 11h6v1h-6zM14 11h6v1h-6zM21 11h6v1h-6zM28 11h6v1h-6zM35 11h2v1h-2zM41 11h2v1h-2zM44 11h6v1h-6zM51 11h6v1h-6zM58 11h6v1h-6zM0 12h2v1h-2zM7 12h2v1h-2zM11 12h2v1h-2zM14 12h2v1h-2zM18 12h2v1h-2zM21 12h2v1h-2zM28 12h2v1h-2zM35 12h2v1h-2zM38 12h2v1h-2zM41 12h2v1h-2zM44 12h2v1h-2zM48 12h2v1h-2zM51 12h2v1h-2zM55 12h2v1h-2zM58 12h2v1h-2zM62 12h2v1h-2zM0 13h2v1h-2zM7 13h5v1h-5zM14 13h2v1h-2zM18 13h2v1h-2zM22 13h4v1h-4zM29 13h4v1h-4zM35 13h2v1h-2zM38 13h2v1h-2zM41 13h2v1h-2zM44 13h2v1h-2zM48 13h2v1h-2zM51 13h5v1h-5zM58 13h2v1h-2zM62 13h2v1h-2zM0 14h2v1h-2zM7 14h4v1h-4zM14 14h2v1h-2zM18 14h2v1h-2zM25 14h2v1h-2zM32 14h2v1h-2zM35 14h2v1h-2zM38 14h2v1h-2zM41 14h2v1h-2zM44 14h2v1h-2zM48 14h2v1h-2zM51 14h4v1h-4zM58 14h2v1h-2zM62 14h2v1h-2zM0 15h6v1h-6zM7 15h2v1h-2zM11 15h2v1h-2zM14 15h6v1h-6zM21 15h6v1h-6zM28 15h6v1h-6zM35 15h8v1h-8zM44 15h6v1h-6zM51 15h2v1h-2zM55 15h2v1h-2zM58 15h6v1h-6zM1 16h4v1h-4zM7 16h2v1h-2zM11 16h2v1h-2zM15 16h4v1h-4zM21 16h5v1h-5zM28 16h5v1h-5zM36 16h6v1h-6zM45 16h4v1h-4zM51 16h2v1h-2zM55 16h2v1h-2zM58 16h5v1h-5z"/></svg></h1>
         <p id="setTitle"></p>
         <p id="setNotice"></p>
         <p class="puzzle-stats">
@@ -519,7 +707,7 @@
         <button id="selfcheck">ตรวจระบบ</button>
         <div id="checkResult" hidden></div>
       </details>
-      <footer>ปริศนาศัพท์ดนตรี · สร้างด้วย AI ช่วย · วิชา 3500230</footer>
+      <footer><svg class="smile" aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="#ee5a24" stroke-width="2.5" stroke-linecap="round"><circle cx="20" cy="20" r="17"/><path d="M13 14v4M27 14v4M11 24c5 6 13 6 18 0"/></svg>Music Term Crossword · สร้างด้วย AI ช่วย · วิชา 3500230</footer>
     </main>
     <script>
       (function () {
@@ -529,7 +717,7 @@
         var WORD_SETS = [
           {
             id: 'speed',
-            title: 'ความเร็วและความดัง',
+            title: '[IT] ความเร็วและความดัง',
             level: 'ง่าย',
             words: [
               { a: 'LARGO', c: 'ช้ามากและกว้าง' },
@@ -548,7 +736,7 @@
           },
           {
             id: 'touch',
-            title: 'วิธีเล่นและอารมณ์',
+            title: '[IT] วิธีเล่นและอารมณ์',
             level: 'กลาง',
             words: [
               { a: 'LEGATO', c: 'เล่นให้เสียงต่อเนื่องเชื่อมกัน' },
@@ -567,7 +755,7 @@
           },
           {
             id: 'form',
-            title: 'รูปแบบและการแสดง',
+            title: '[IT] รูปแบบและการแสดง',
             level: 'ยาก',
             words: [
               { a: 'SONATA', c: 'บทเพลงสำหรับเครื่องดนตรีเดี่ยว มักมีหลายท่อน' },
@@ -585,7 +773,7 @@
             ]
           },
           {
-            id: "instruments", title: "เครื่องดนตรี", level: "ง่าย", words: [
+            id: "instruments", title: "[EN] เครื่องดนตรี", level: "ง่าย", words: [
             { a: "VIOLIN", c: "เครื่องสายเสียงสูงที่สุดในวงออร์เคสตรา" },
             { a: "VIOLA", c: "เครื่องสายที่ใหญ่กว่าไวโอลินเล็กน้อย เสียงทุ้มกว่า" },
             { a: "CELLO", c: "เครื่องสายเสียงทุ้ม นั่งเล่นโดยวางไว้ระหว่างเข่า" },
@@ -603,7 +791,7 @@
             ]
           },
           {
-            id: "theory", title: "ทฤษฎีเบื้องต้น", level: "กลาง", words: [
+            id: "theory", title: "[EN] ทฤษฎีเบื้องต้น", level: "กลาง", words: [
             { a: "SCALE", c: "บันไดเสียง" },
             { a: "CHORD", c: "เสียงตั้งแต่สามเสียงขึ้นไปที่ดังพร้อมกัน" },
             { a: "TRIAD", c: "คอร์ดที่มีสามเสียง" },
@@ -623,21 +811,100 @@
             ]
           },
           {
-            id: "composers", title: "นักประพันธ์เพลง", level: "ยาก", words: [
-            { a: "BACH", c: "นักประพันธ์ยุคบาโรก ผู้แต่ง Brandenburg Concertos" },
-            { a: "HANDEL", c: "ผู้แต่ง Messiah" },
+            id: "comp-baroque", title: "[ทุกภาษา] นักประพันธ์ · ยุคบาโรก", level: "ยาก", words: [
+            { a: "BACH", c: "ผู้แต่ง Brandenburg Concertos และ The Well-Tempered Clavier" },
+            { a: "HANDEL", c: "ผู้แต่ง Messiah และ Water Music" },
             { a: "VIVALDI", c: "ผู้แต่ง The Four Seasons" },
+            { a: "PURCELL", c: "นักประพันธ์ชาวอังกฤษ ผู้แต่งโอเปรา Dido and Aeneas" },
+            { a: "TELEMANN", c: "นักประพันธ์ชาวเยอรมัน เพื่อนของบาค แต่งงานไว้มหาศาล" },
+            { a: "CORELLI", c: "นักไวโอลินชาวอิตาลี ผู้วางรากฐานคอนแชร์โตกรอสโซ" },
+            { a: "SCARLATTI", c: "ผู้แต่งโซนาตาสำหรับคีย์บอร์ดกว่า 500 บท" },
+            { a: "MONTEVERDI", c: "ผู้แต่งโอเปรา L'Orfeo คาบเกี่ยวเรอเนซองส์กับบาโรก" },
+            { a: "RAMEAU", c: "นักประพันธ์ชาวฝรั่งเศส ผู้เขียนตำราว่าด้วยการประสานเสียง" },
+            { a: "LULLY", c: "นักประพันธ์ในราชสำนักพระเจ้าหลุยส์ที่ 14" },
+            { a: "ALBINONI", c: "นักประพันธ์ชาวเวนิส ผู้แต่งคอนแชร์โตสำหรับโอโบ" },
+            { a: "PACHELBEL", c: "ผู้แต่ง Canon in D" }
+            ]
+          },
+          {
+            id: "comp-classical", title: "[ทุกภาษา] นักประพันธ์ · ยุคคลาสสิก", level: "กลาง", words: [
             { a: "HAYDN", c: "ได้ชื่อว่าบิดาแห่งซิมโฟนี" },
             { a: "MOZART", c: "ผู้แต่งโอเปรา The Magic Flute" },
             { a: "BEETHOVEN", c: "ผู้แต่งซิมโฟนีหมายเลข 9 ในช่วงที่สูญเสียการได้ยิน" },
+            { a: "GLUCK", c: "นักปฏิรูปโอเปรา ผู้แต่ง Orfeo ed Euridice" },
+            { a: "CLEMENTI", c: "นักเปียโนชาวอิตาลี ผู้แต่ง Gradus ad Parnassum" },
+            { a: "SALIERI", c: "นักประพันธ์ในราชสำนักเวียนนา ครูของเบโธเฟนและชูเบิร์ต" },
+            { a: "BOCCHERINI", c: "นักเชลโลชาวอิตาลี ผู้แต่งเมนูเอตที่โด่งดัง" },
+            { a: "STAMITZ", c: "ผู้ก่อตั้งสำนักแมนไฮม์ ผู้พัฒนาวงออร์เคสตรายุคแรก" },
+            { a: "HUMMEL", c: "ศิษย์ของโมซาร์ต ผู้แต่งคอนแชร์โตทรัมเป็ต" },
+            { a: "CIMAROSA", c: "ผู้แต่งโอเปราบุฟฟา Il matrimonio segreto" },
+            { a: "DUSSEK", c: "นักเปียโนและนักประพันธ์ชาวเช็ก" },
+            { a: "PLEYEL", c: "ศิษย์ของไฮเดิน ผู้ก่อตั้งบริษัทเปียโนในฝรั่งเศส" }
+            ]
+          },
+          {
+            id: "comp-romantic", title: "[ทุกภาษา] นักประพันธ์ · ยุคโรแมนติก", level: "กลาง", words: [
             { a: "SCHUBERT", c: "ผู้แต่งเพลงร้องศิลป์ (Lied) มากกว่า 600 เพลง" },
             { a: "CHOPIN", c: "นักเปียโนชาวโปแลนด์ ผู้แต่ง Nocturnes" },
             { a: "LISZT", c: "นักเปียโนชาวฮังการี ผู้แต่ง Hungarian Rhapsodies" },
             { a: "BRAHMS", c: "ผู้แต่ง Hungarian Dances" },
             { a: "VERDI", c: "ผู้แต่งโอเปรา La Traviata" },
             { a: "WAGNER", c: "ผู้แต่งโอเปราชุด The Ring" },
+            { a: "SCHUMANN", c: "ผู้แต่ง Kinderszenen สามีของคลารา" },
+            { a: "DVORAK", c: "นักประพันธ์ชาวเช็ก ผู้แต่งซิมโฟนีจากโลกใหม่" },
+            { a: "GRIEG", c: "นักประพันธ์ชาวนอร์เวย์ ผู้แต่ง Peer Gynt" },
+            { a: "MAHLER", c: "ผู้แต่งซิมโฟนีขนาดใหญ่ชาวออสเตรีย" },
+            { a: "BIZET", c: "ผู้แต่งโอเปรา Carmen" },
+            { a: "PUCCINI", c: "ผู้แต่งโอเปรา La Bohème" },
+            { a: "ELGAR", c: "ผู้แต่ง Pomp and Circumstance" }
+            ]
+          },
+          {
+            id: "comp-modern", title: "[ทุกภาษา] นักประพันธ์ · ศตวรรษที่ 20", level: "ยาก", words: [
             { a: "DEBUSSY", c: "ผู้แต่ง Clair de lune" },
-            { a: "RAVEL", c: "ผู้แต่ง Boléro" }
+            { a: "RAVEL", c: "ผู้แต่ง Boléro" },
+            { a: "STRAVINSKY", c: "ผู้แต่งบัลเลต์ The Rite of Spring" },
+            { a: "BARTOK", c: "นักประพันธ์ชาวฮังการี ผู้รวบรวมเพลงพื้นบ้าน" },
+            { a: "SATIE", c: "ผู้แต่ง Gymnopédies" },
+            { a: "PROKOFIEV", c: "ผู้แต่ง Peter and the Wolf" },
+            { a: "COPLAND", c: "ผู้แต่งบัลเลต์ Appalachian Spring" },
+            { a: "GERSHWIN", c: "ผู้แต่ง Rhapsody in Blue" },
+            { a: "HOLST", c: "ผู้แต่งชุดดนตรี The Planets" },
+            { a: "BRITTEN", c: "ผู้แต่ง The Young Person's Guide to the Orchestra" },
+            { a: "RESPIGHI", c: "ผู้แต่ง Pines of Rome" },
+            { a: "SIBELIUS", c: "ผู้แต่ง Finlandia" }
+            ]
+          },
+          {
+            id: "german", title: "[DE] ศัพท์ดนตรีเยอรมัน", level: "กลาง", words: [
+            { a: "AKKORD", c: "เสียงตั้งแต่สามเสียงขึ้นไปที่ดังพร้อมกัน" },
+            { a: "TONART", c: "กุญแจเสียงของบทเพลง เช่น C-Dur" },
+            { a: "TAKT", c: "ห้องเพลง หรือการแบ่งจังหวะเป็นห้อง" },
+            { a: "LIED", c: "เพลงร้องศิลป์ มักร้องกับเปียโน (เช่นของชูเบิร์ต)" },
+            { a: "GEIGE", c: "เครื่องสายที่สีด้วยคันชัก เสียงสูง" },
+            { a: "KLAVIER", c: "เครื่องดนตรีที่มีลิ่มนิ้วและค้อนตีสาย" },
+            { a: "ORGEL", c: "เครื่องดนตรีในโบสถ์ที่มีท่อลมจำนวนมาก" },
+            { a: "HARFE", c: "เครื่องสายขนาดใหญ่ ใช้นิ้วดีด" },
+            { a: "TROMMEL", c: "เครื่องกระทบที่ตีด้วยไม้ตี" },
+            { a: "CHOR", c: "กลุ่มนักร้องที่ร้องประสานเสียงร่วมกัน" },
+            { a: "KANON", c: "บทเพลงที่แต่ละเสียงเข้ามาร้องเลียนกันทีละเสียง" },
+            { a: "FUGE", c: "บทเพลงหลายแนวที่ไล่เลียนทำนองกัน (ที่บาคเชี่ยวชาญ)" }
+            ]
+          },
+          {
+            id: "french", title: "[FR] ศัพท์ดนตรีฝรั่งเศส", level: "กลาง", words: [
+            { a: "ARCHET", c: "คันชักที่ใช้สีสายไวโอลินหรือเชลโล" },
+            { a: "VIOLON", c: "เครื่องสายเสียงสูงที่สุดในวงออร์เคสตรา" },
+            { a: "HAUTBOIS", c: "เครื่องลมไม้ลิ้นคู่ ใช้ให้เสียงเทียบของวง" },
+            { a: "BASSON", c: "เครื่องลมไม้ลิ้นคู่เสียงต่ำ" },
+            { a: "CLAVECIN", c: "เครื่องดนตรีลิ่มนิ้วที่ดีดสายด้วยหนามเล็ก ๆ (ยุคบาโรก)" },
+            { a: "TAMBOUR", c: "เครื่องกระทบหน้าหนัง ตีด้วยไม้" },
+            { a: "CHANSON", c: "เพลงร้องแบบฝรั่งเศส" },
+            { a: "VALSE", c: "เพลงจังหวะสามช่วงที่ใช้เต้นรำ" },
+            { a: "ACCORD", c: "เสียงตั้งแต่สามเสียงขึ้นไปที่ดังพร้อมกัน" },
+            { a: "GAMME", c: "บันไดเสียง" },
+            { a: "MESURE", c: "ห้องเพลง หรือการแบ่งจังหวะเป็นห้อง" },
+            { a: "SOURDINE", c: "อุปกรณ์ที่ทำให้เครื่องดนตรีเสียงเบาลง" }
             ]
           }
         ];
@@ -686,6 +953,60 @@
           TONIC: { demo: { type: "alone" } },
           HARMONY: { demo: { type: "together" } }
         };
+        // คำอ่านและคำแปลสี่ภาษา (EN/IT/DE/FR) ของศัพท์ใหม่และศัพท์เดิมบางคำ
+        var EXTRA = {
+          AKKORD: { read: "อัคคอร์ด", more: "EN chord · IT accordo · FR accord", demo: { type: "together" } },
+          TONART: { read: "โทนอาร์ท", more: "EN key · IT tonalità · FR tonalité" },
+          TAKT: { read: "ทักท์", more: "EN bar/measure · IT battuta · FR mesure" },
+          LIED: { read: "ลีท", more: "EN song · IT canto · FR chanson" },
+          GEIGE: { read: "ไกเงอ", more: "EN violin · IT violino · FR violon" },
+          KLAVIER: { read: "คลาเวียร์", more: "EN piano · IT pianoforte · FR piano" },
+          ORGEL: { read: "ออร์เกิล", more: "EN organ · IT organo · FR orgue" },
+          HARFE: { read: "ฮาร์เฟอ", more: "EN harp · IT arpa · FR harpe" },
+          TROMMEL: { read: "ทรอมเมิล", more: "EN drum · IT tamburo · FR tambour" },
+          CHOR: { read: "โคร์", more: "EN choir · IT coro · FR chœur", demo: { type: "together" } },
+          KANON: { read: "คาโนน", more: "EN canon · IT canone · FR canon" },
+          FUGE: { read: "ฟูเกอ", more: "EN fugue · IT fuga · FR fugue" },
+          ARCHET: { read: "อาร์เช", more: "EN bow · IT arco · DE Bogen" },
+          VIOLON: { read: "วิโอลง", more: "EN violin · IT violino · DE Geige" },
+          HAUTBOIS: { read: "โอบัว", more: "EN oboe · IT oboe · DE Oboe" },
+          BASSON: { read: "บาซง", more: "EN bassoon · IT fagotto · DE Fagott" },
+          CLAVECIN: { read: "กลาแวสแซ็ง", more: "EN harpsichord · IT clavicembalo · DE Cembalo" },
+          TAMBOUR: { read: "ตองบูร์", more: "EN drum · IT tamburo · DE Trommel" },
+          CHANSON: { read: "ชองซง", more: "EN song · IT canzone · DE Lied" },
+          VALSE: { read: "วาลส์", more: "EN waltz · IT valzer · DE Walzer", demo: { type: "tempo", bpm: 120 } },
+          ACCORD: { read: "อากอร์", more: "EN chord · IT accordo · DE Akkord", demo: { type: "together" } },
+          GAMME: { read: "กาม", more: "EN scale · IT scala · DE Tonleiter" },
+          MESURE: { read: "เมอซูร์", more: "EN bar/measure · IT battuta · DE Takt" },
+          SOURDINE: { read: "ซูร์ดีน", more: "EN mute · IT sordina · DE Dämpfer" },
+          LARGO: { more: "EN broad/slow · FR large · DE breit" },
+          ADAGIO: { more: "EN slowly · FR lent · DE langsam" },
+          PRESTO: { more: "EN very fast · FR très vite · DE sehr schnell" },
+          FORTE: { more: "EN loud · FR fort · DE laut" },
+          PIANO: { more: "EN soft · FR doux · DE leise" },
+          LEGATO: { more: "EN smooth · FR lié · DE gebunden" },
+          STACCATO: { more: "EN detached · FR détaché · DE abgestoßen" },
+          DOLCE: { more: "EN sweetly · FR doux · DE sanft" },
+          VIOLIN: { more: "IT violino · DE Geige · FR violon" },
+          FLUTE: { more: "IT flauto · DE Flöte · FR flûte" },
+          OBOE: { more: "IT oboe · DE Oboe · FR hautbois" },
+          CHORD: { more: "IT accordo · DE Akkord · FR accord" },
+          SCALE: { more: "IT scala · DE Tonleiter · FR gamme" }
+        };
+        Object.keys(EXTRA).forEach(function (k) { TERM_DETAILS[k] = Object.assign(TERM_DETAILS[k] || {}, EXTRA[k]); });
+        var ERAS = {
+          'comp-baroque': 'ยุคบาโรก (ราว ค.ศ. 1600–1750)',
+          'comp-classical': 'ยุคคลาสสิก (ราว ค.ศ. 1750–1820)',
+          'comp-romantic': 'ยุคโรแมนติก (ราว ค.ศ. 1820–1900)',
+          'comp-modern': 'ยุคอิมเพรสชันนิสม์และศตวรรษที่ 20'
+        };
+        WORD_SETS.forEach(function (set) {
+          if (!ERAS[set.id]) return;
+          set.words.forEach(function (w) {
+            var d = (TERM_DETAILS[w.a] = TERM_DETAILS[w.a] || {});
+            if (!d.more) d.more = ERAS[set.id];
+          });
+        });
         // โหมดการเล่นและคำอธิบายสั้น ๆ
         var MODES = [
           {id: "classic", label: "ปกติ", about: "เติมแล้วกดตรวจเมื่อพร้อม"},
@@ -2581,6 +2902,34 @@
         }
         /* ═══════════ โซน E · ส่วนเสริมของนิสิต (เขียนเพิ่มที่นี่) ═══════════ */
         /* เพิ่มส่วนเสริมที่นี่ */
+        /* ตัวกรองภาษาของชุดศัพท์ (ไม่แตะแกนเกม) */
+        (function () {
+          var box = document.getElementById('sets'), cur = 'all';
+          if (!box) return;
+          var bar = document.createElement('div');
+          bar.className = 'segments lang-bar';
+          bar.setAttribute('role', 'group');
+          bar.setAttribute('aria-label', 'ภาษาของศัพท์');
+          var LANGS = [['all', 'ทั้งหมด'], ['IT', 'อิตาลี'], ['DE', 'เยอรมัน'], ['FR', 'ฝรั่งเศส'], ['EN', 'อังกฤษ']];
+          function apply() {
+            Array.prototype.forEach.call(box.children, function (el) {
+              var t = el.textContent || '';
+              el.hidden = cur !== 'all' && t.indexOf('[' + cur + ']') < 0 && t.indexOf('[ทุกภาษา]') < 0;
+            });
+            Array.prototype.forEach.call(bar.children, function (b) {
+              b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === cur));
+            });
+          }
+          LANGS.forEach(function (l) {
+            var b = document.createElement('button');
+            b.type = 'button'; b.textContent = l[1]; b.setAttribute('data-lang', l[0]);
+            b.addEventListener('click', function () { cur = l[0]; apply(); });
+            bar.appendChild(b);
+          });
+          box.parentNode.insertBefore(bar, box);
+          new MutationObserver(apply).observe(box, { childList: true });
+          apply();
+        }());
         /* Game.on('puzzleStart', function (detail) {}); */
       }());
     </script>
